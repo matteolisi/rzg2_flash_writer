@@ -325,6 +325,7 @@ uint32_t CheckQspiFlashId(void)
 	gDeviceId		= deviceId;
 	switch(manuId)
 	{
+
 		case CYPRESS_MANUFACTURER_ID:
 			PutStr(" Cypress : ", 0);
 			switch(deviceId)
@@ -1710,6 +1711,7 @@ void dgDdrTest(void)
 			{
 				PutStr("=== RZ/G2N (Memory controller is only channel 1) ===",1);
 			}
+
 			readData = *((volatile uint32_t*)0x0000000410000000);	//Access Check
 			PutStr("Check:0x04_10000000 ... ",0);
 			if (CkExtendDdrRamCheck((void*)0x0000000410000000))
@@ -1722,8 +1724,10 @@ void dgDdrTest(void)
 			{
 				PutStr(" Pass!",1);
 			}
-			PutStr("Check:0x04_40000000 ... ",0);
-			if (CkExtendDdrRamCheck((void*)0x0000000440000000))
+
+			readData = *((volatile uint32_t*)0x0000000420000000);	//Access Check
+			PutStr("Check:0x04_20000000 ... ",0);
+			if (CkExtendDdrRamCheck((void*)0x0000000420000000))
 			{
 				PutStr(" Fail!",1);
 				PutDdrErrInfo();
@@ -1733,6 +1737,36 @@ void dgDdrTest(void)
 			{
 				PutStr(" Pass!",1);
 			}
+
+
+			readData = *((volatile uint32_t*)0x0000000430000000);	//Access Check
+			PutStr("Check:0x04_30000000 ... ",0);
+			if (CkExtendDdrRamCheck((void*)0x0000000430000000))
+			{
+				PutStr(" Fail!",1);
+				PutDdrErrInfo();
+				return;
+			}
+			else
+			{
+				PutStr(" Pass!",1);
+			}
+
+
+			readData = *((volatile uint32_t*)0x0000000400000000);	//Access Check
+			PutStr("Check:0x04_00000000 ... ",0);
+			if (CkExtendDdrRamCheck((void*)0x0000000400000000))
+			{
+				PutStr(" Fail!",1);
+				PutDdrErrInfo();
+				return;
+			}
+			else
+			{
+				PutStr(" Pass!",1);
+			}
+
+
 		break;
 		case PRR_PRODUCT_G2M:
 			PutStr("=== Memory map RZ/G2M ====",1);

@@ -125,7 +125,7 @@ void InitRPC_QspiFlash(void)
 {
 	PowerOnRPC();
 
-	SetRPC_ClockMode(RPC_CLK_80M);
+	SetRPC_ClockMode(RPC_CLK_40M);
 	ResetRPC();
 	SetRPC_SSL_Delay();
 

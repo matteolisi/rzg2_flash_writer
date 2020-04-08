@@ -70,7 +70,7 @@ static void SectorEraseQspiFlashInternal(uint32_t addr)
 	PutStr("## SectorEraseQspiFlashInternal", 1);
 #endif
 	WriteCommandQspiFlash(0x00060000);	//WRITE ENABLE
-	SectorErase4QspiFlash(addr);
+	SectorEraseQspiFlash(addr);
 
 	while(1)
 	{
@@ -125,7 +125,7 @@ void PageProgramWithBuffeQspiFlash(uint32_t addr, uint32_t source_addr)
 	PutStr(str, 1);
 #endif
 	WriteCommandQspiFlash(0x00060000);	//WRITE ENABLE
-	WriteData4ppWithBufferQspiFlash(addr, source_addr);	//4PP
+	WriteDataPpWithBufferQspiFlash(addr, source_addr); //[ML]
 	while(1)
 	{
 		ReadStatusQspiFlash(&status);

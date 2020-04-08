@@ -63,9 +63,9 @@ CROSS_COMPILE ?= aarch64-elf-
 
 ifeq ("$(BOARD)", "EK874")
 	BOARD_NAME   =  EK874
-	FILENAME_ADD = _ek874
+	FILENAME_ADD = _icore
 	CFLAGS += -DRZG2_EK874=1
-	EMMC = DISABLE
+#MP:era 	EMMC = DISABLE
 else
 	BOARD_NAME   =  HIHOPE
 	FILENAME_ADD = _hihope

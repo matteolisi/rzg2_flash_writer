@@ -82,11 +82,20 @@ void StartMess( void )
 			PutStr("RZ/G2N", 0);
 		break;
 		case PRR_PRODUCT_G2E:
-			PutStr("RZ/G2E", 0);
+			PutStr("RZ/G2E Engicam", 0);
 		break;
 		default:
 		break;
 	}
+
+#if EMMC == 1
+	PutStr(" EMMC=1 ", 0);
+#endif /* EMMC == 1 */
+#if SERIAL_FLASH == 1
+	PutStr(" SERIAL_FLASH=1 ", 0);
+#endif /* SERIAL_FLASH == 1 */
+
+
 	PutStr(WRITER_VERSION, 0);
 	PutStr(WRITER_DATE,1);
 	PutStr(">", 0);
