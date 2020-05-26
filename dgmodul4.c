@@ -472,6 +472,20 @@ uint32_t CheckQspiFlashId(void)
 				break;
 			}
 		break;
+		case ESMT_EON_MANUFACTURER_ID:
+			PutStr(" ESMT : ", 0);
+			switch(deviceId)
+			{
+				case DEVICE_ID_EN25QH64A:
+						PutStr("EN25QH64A", 1);
+						gQspi_sa_size    = SA_64KB;
+						gQspi_end_addess = TOTAL_SIZE_16MB - 0x8000 - 1;
+				break;
+				default:
+					ret = -1;
+				break;
+			}
+		break;
 		default:
 			ret = 1;
 		break;

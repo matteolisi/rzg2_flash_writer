@@ -187,6 +187,10 @@ static void InitIPSR_G2E(void)
 
 static void InitGPSR_G2E(void)
 {
+	PFC_WR(PFC_GPSR4, 0x000007FF);	// SD3_DS, SD3_DAT7,
+					// SD3_DAT6, SD3_DAT5, SD3_DAT4, SD3_DAT3, SD2_DAT2, SD3_DAT1, SD3_DAT0, SD3_CMD
+					// SD3_CLK
+
 	PFC_WR(PFC_GPSR2,0x3f);
 }
 

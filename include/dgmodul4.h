@@ -82,6 +82,7 @@
 #define	WINBOND_MANUFACTURER_ID		0xEF	/* Winbond	*/
 #define	MACRONIX_MANUFACTURER_ID	0xC2	/* Macronix	*/
 #define	MICRON_MANUFACTURER_ID		0x20	/* Micron	*/
+#define	ESMT_EON_MANUFACTURER_ID	0x1C	/* ESMT-EON	*/
 
 #define	DEVICE_ID_S25FS128S		0x2018
 #define	DEVICE_ID_S25FS512S		0x0220
@@ -108,6 +109,9 @@
 #define	DEVICE_ID_MT25QU01G		0xBB21
 #define	DEVICE_ID_MT25QL02G		0xBA22
 #define	DEVICE_ID_MT25QU02G		0xBB22
+
+
+#define	DEVICE_ID_EN25QH64A		0x7017
 
 void dgG2LoadSpiflash0(void);
 void InitRPC_Mode(void);
